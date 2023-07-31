@@ -44,7 +44,7 @@ Reporting and data visualization are essential for understanding information fro
 
 1. Continue in the directory of the desired service option (e.g., spark-hdfs, spark-lab-hdfs, hive-superset-hive):
     ```sh
-    cd samplé/spark-lab-hdfs
+    cd samples/spark-lab-hdfs
     ```
 2. Run the deploy_docker.sh script to deploy the service using Docker:
     ```sh
@@ -54,13 +54,13 @@ Reporting and data visualization are essential for understanding information fro
 
 1. Continue in the directory of the desired service option (e.g., spark-hdfs, spark-lab-hdfs, hive-superset-hive):
     ```sh
-    cd samplé/spark-lab-hdfs
+    cd samples/spark-lab-hdfs
     ```
 2. Run the deploy_k8s.sh script to deploy the service using Kubernetes:
     ```sh
     sh deploy_docker.sh
     ```
-```Note:```
+**Note:**
 - Make sure you have Docker and Kubernetes (kubectl) installed before proceeding with the Docker and Kubernetes deployment steps.
 - This guide uses sample directory options from the "samples" directory in the repository. You can modify these options by navigating to different directories within "samples" and following similar steps.
 
