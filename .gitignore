@@ -1,0 +1,2 @@
+samples/spark-deltalake/data/*
+!samples/spark-deltalake/data/.gitkeep

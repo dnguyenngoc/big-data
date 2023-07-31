@@ -2,6 +2,8 @@
 
 This is a guide to build a powerful, scalable, and flexible distributed big data system, including Data Warehouse, Data Lake, and ETL tools like Airflow, Spark, HDFS, Hive, and Superset.
 
+![Pipeline Sample](documents/big-data.gif)
+
 ## Objective
 The goal of this project is to create a distributed data system capable of processing and analyzing large datasets from multiple sources and providing comprehensive reporting and data visualization for end-users.
 
