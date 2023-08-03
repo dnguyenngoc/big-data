@@ -1,5 +1,6 @@
 version: '3.8'
 services:
+
   spark:
     image: bitnami/spark:3.3.1
     environment:
@@ -10,6 +11,7 @@ services:
     volumes:
       - ./data:/data
       - ./src:/src
+
   spark-worker:
     image: bitnami/spark:3.3.1
     environment:
@@ -23,9 +25,25 @@ services:
     volumes:
       - ./data:/data
       - ./src:/src
-  jupyter:
-    image: jupyter/pyspark-notebook:spark-3.3.1
+
+  spark-worker2:
+    image: bitnami/spark:3.3.1
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_EXECUTOR_MEMORY=1G
+      - SPARK_WORKER_CORES=1
     ports:
-      - '8890:8888'
+      - '8082:8081'  # Use a different port to avoid conflicts
     volumes:
       - ./data:/data
+      - ./src:/src
+
+  jupyterlab:
+    image: streamingpipeline/big-data:py311-jupyterlab-latest
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./data:/data
+      - ./src:/app

@@ -1,2 +1,5 @@
-samples/spark-deltalake/data/*
-!samples/spark-deltalake/data/.gitkeep
+samples/spark-lab-deltalake/data/*
+!samples/spark-lab-deltalake/data/.gitkeep
+
+# jupyterlab
+.ipynb_checkpoints
