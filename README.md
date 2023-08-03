@@ -7,6 +7,10 @@ This is a guide to build a powerful, scalable, and flexible distributed big data
 ## Objective
 The goal of this project is to create a distributed data system capable of processing and analyzing large datasets from multiple sources and providing comprehensive reporting and data visualization for end-users.
 
+## Samples
+
+- [Spark Lab with Delta Lake](samples/spark-lab-deltalake/README.vie.md)
+
 ## Components
 
 ### 1. Data Lake and Data Warehouse
