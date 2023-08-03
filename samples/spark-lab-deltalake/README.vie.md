@@ -43,7 +43,7 @@ Delta Lake bảo vệ một schema nghiêm ngặt cho dữ liệu, đảm bảo 
 
 - **Schema Enforcement:** Chỉ những dữ liệu tuân theo schema đã định nghĩa mới được ghi vào bảng
 
-    ```json
+    ```yaml
     //Schema
     |-- phone: string
     |-- email: string
@@ -55,7 +55,7 @@ Delta Lake bảo vệ một schema nghiêm ngặt cho dữ liệu, đảm bảo 
 
 - **Schema Validation:** Tính năng Schema Validation trong Delta Lake giúp xác thực kiểu dữ liệu của dữ liệu trước khi ghi vào bảng. Điều này giúp đảm bảo tính hợp lệ của dữ liệu và tránh các lỗi không đáng có. Ví Dụ: Dữ liệu mới phải tuân theo kiểu dữ liệu đã xác định trong schema trước khi được ghi vào bảng.
 
-    ```json
+    ```yaml
     // Schema
     |-- employee_id: integer
     |-- name: string
@@ -89,7 +89,7 @@ Delta Lake cung cấp nhiều tính năng và cơ chế tối ưu hóa để c�
 
     EX: Cập nhật bảng:
 
-    ```json
+    ```yaml
     customer_id|customer_name|age|address|last_updated
     -------------------------------------------------
     C001       |John Doe     |30 |123 St.|2023-08-01 12:00:00
@@ -103,7 +103,7 @@ Delta Lake cung cấp nhiều tính năng và cơ chế tối ưu hóa để c�
 
     EX: Giả sử bạn có bảng ```sales_data``` trong Delta Lake với các cột sau:
 
-    ```json
+    ```yaml
     customer_id | product_id | quantity | timestamp
     ----------------------------------------------
     C001        | P001       | 50       | 2023-08-01 12:00:00
@@ -113,7 +113,7 @@ Delta Lake cung cấp nhiều tính năng và cơ chế tối ưu hóa để c�
     ```
     Nếu bạn muốn sắp xếp dữ liệu trong Delta Lake dựa trên cột ```timestamp```, Delta Lake sẽ tổ chức lại dữ liệu trong các tệp Delta sao cho các dòng dữ liệu có giá trị của cột "timestamp" gần nhau được gom nhóm lại trong cùng một vị trí trên đĩa.
     
-    ```json
+    ```yaml
     Tệp Delta 1:
     ----------------------------------------------
     customer_id | product_id | quantity | timestamp
@@ -132,7 +132,7 @@ Delta Lake cung cấp nhiều tính năng và cơ chế tối ưu hóa để c�
     
     EX: Áp dụng dữ liệu phía trên với cột ```timestamp``` đã có thông tin trong metadata:
     
-    ```json
+    ```yaml
     Delta Table: sales_data
     Siêu dữ liệu:
     ---------------------------------------------
@@ -159,7 +159,7 @@ Delta Lake cung cấp nhiều tính năng và cơ chế tối ưu hóa để c�
     + Cấu hình tại: `/path/to/delta/tables/<table_name>/_delta_log/delta.properties`
     + Giá trị mặc định của cả hai tùy chọn này là null, điều này có nghĩa là mặc định Delta Lake sẽ không áp dụng Compaction tự động. 
 
-    ```json
+    ```yaml
     // Ví dụ 
     // Cấu hình dung lượng cho phép là 1GB
     // Thời gian tối thiểu giữa các lần thực hiện Compaction là 1 ngày
