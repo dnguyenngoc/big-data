@@ -15,13 +15,24 @@ Delta Lake hỗ trợ các giao dịch ACID (Atomicity, Consistency, Isolation, 
 
 ACID là viết tắt của Atomicity (Nguyên tố), Consistency (Nhất quán), Isolation (Độc lập) và Durability (Bền vững). Đây là các tính năng quan trọng của hệ thống quản lý cơ sở dữ liệu (DBMS) để đảm bảo tính toàn vẹn và đáng tin cậy của dữ liệu trong quá trình thực hiện các giao dịch.
 
-> EX: Giả sử bạn có một bảng lưu trữ dữ liệu về đơn hàng của khách hàng trong Delta Lake. Cần thực hiện một số tác động như thêm một mới vào bảng này, sửa đổi, xoá bỏ và cập nhật số lượng sản phẩm trong kho hàng và cập nhật tổng số tiền bán hàng.
+> EX: Giả sử bạn có một bảng lưu trữ dữ liệu về đơn hàng của khách hàng trong Delta Lake. Cần thực hiện một số tác động như thêm mới, sửa đổi, xoá bỏ và cập nhật số lượng sản phẩm trong kho hàng và cập nhật tổng số tiền bán hàng.
+```
++-----------+------------+-----------+----------+---------+---------------------+
+| order_id  | customer_id| product_id| quantity |  price  |      timestamp      |
++-----------+------------+-----------+----------+---------+---------------------+
+|   DH001   |   C001     |   P001    |    50    |  10.99  | 2023-08-01 12:00:00 |
+|   DH002   |   C002     |   P002    |    30    |  20.50  | 2023-08-01 12:05:00 |
+|   DH003   |   C003     |   P003    |    20    |  15.75  | 2023-08-01 12:10:00 |
+|   DH004   |   C004     |   P004    |    40    |  8.95   | 2023-08-01 12:15:00 |
++-----------+------------+-----------+----------+---------+---------------------+
+```
+
 - **Một giao dịch được xem là Atomicity (Nguyên tố):** Tức là nó được thực hiện hoàn toàn hoặc không thực hiện gì cả. Nếu một phần của giao dịch thất bại, toàn bộ giao dịch sẽ bị hủy và dữ liệu sẽ được trả về trạng thái ban đầu.
     - Thêm đơn hàng và cập nhật số lượng sản phẩm trong kho, tổng tiền bán hàn. Nếu lỗi thì toàn bộ giao dịch sẽ bị hủy và dữ liệu sẽ trở về trạng thái ban đầu. Đảm bảo rằng dữ liệu không bị ảnh hưởng bởi các giao dịch thất bại.
 
-- **Consistency (Nhất quán):** Sau khi một giao dịch hoàn thành, dữ liệu phải ở trong trạng thái nhất quán, tức là phải đáp ứng các ràng buộc và quy tắc đã được xác định trước. Điều này đảm bảo rằng dữ liệu không bị lỗi hoặc vi phạm các quy tắc của hệ thống.
+- **Consistency (Nhất quán):** Sau khi một giao dịch hoàn thành, dữ liệu phải ở trong trạng thái nhất quán, tức là phải đáp ứng các ràng buộc và quy tắc đã được xác định trước (mặc định là Timestamp-Based Ordering). Điều này đảm bảo rằng dữ liệu không bị lỗi hoặc vi phạm các quy tắc của hệ thống.
 
-    - Ví Dụ: A và B cùng sửa dữ liệu của đơn hàng ```DH001``` là 100 và 120 nếu đang chọn cơ chế giải quyết xung đột mặc định (Timestamp-Based Ordering) và B có `timestamp` lớn hơn thì giá trị cuối cùng là 120.
+    - Ví Dụ: A và B cùng sửa dữ liệu `quantity`của đơn hàng `DH001` từ bảng ví dụ trên là 100 và 120 nếu đang chọn cơ chế giải quyết xung đột mặc định (Timestamp-Based Ordering) và B có `timestamp` lớn hơn thì giá trị cuối cùng là 120.
     - Một số cơ chế giải quyết xung đột khác: **Version Numbering, External Logic, Custom Conflict Resolution**
 
 - **Isolation (Độc lập):** Độc lập có nghĩa là mỗi giao dịch được thực hiện một cách độc lập mà không bị ảnh hưởng bởi các giao dịch khác đang diễn ra đồng thời. Điều này đảm bảo tính nhất quán của dữ liệu khi có nhiều người dùng truy cập và thay đổi cùng một lúc.
@@ -39,7 +50,7 @@ Delta Lake bảo vệ một schema nghiêm ngặt cho dữ liệu, đảm bảo 
     |-- phone: string
     ```
 
-    Thêm `email` vào bảng mà không làm mất đi dữ liệu đã có mặc định là `null`
+    Thêm `email` vào bảng mà không làm mất đi dữ liệu của những cột khác đã có trong bảng, giá trị mặc định thêm vào cho cột `email` là `null`
 
 - **Schema Enforcement:** Chỉ những dữ liệu tuân theo schema đã định nghĩa mới được ghi vào bảng
 
@@ -153,11 +164,11 @@ Delta Lake cung cấp nhiều tính năng và cơ chế tối ưu hóa để c�
     ```
     
     Thì deltalake chỉ quét dữ liệu từ `Tệp Delta 1` giúp giảm thiểu việc truy cập đĩa và tăng tốc độ truy vấn.
-- **Compaction (Tối ưu dữ liệu):** Delta Lake thực hiện quá trình compact để tổ chức lại và giảm kích thước dữ liệu. Quá trình compact giúp cải thiện hiệu suất đọc dữ liệu và giảm dung lượng lưu trữ. Khi bạn thực hiện các hoạt động ghi dữ liệu trong Delta Lake, các dòng dữ liệu mới sẽ được ghi vào các tệp Delta mới. Điều này có thể dẫn đến việc có nhiều tệp dữ liệu nhỏ, làm cho việc đọc dữ liệu trở nên chậm và tốn nhiều tài nguyên lưu trữ. 
-    + Nó thực hiện tự động dựa theo configuration or manual với lệnh `OPTIMIZE`. 
-    + Quy tắc Compaction gồm 2 cấu hình Quy tắc Số lượng tệp (File Size Rule) ngưỡng dung lượng các tệp Delta, Quy tắc Thời gian (Time-based Rule) thời gian tối thiểu giữa các lần thực hiện Compaction.
-    + Cấu hình tại: `/path/to/delta/tables/<table_name>/_delta_log/delta.properties`
-    + Giá trị mặc định của cả hai tùy chọn này là null, điều này có nghĩa là mặc định Delta Lake sẽ không áp dụng Compaction tự động. 
+- **Compaction (Tối ưu dữ liệu):** Khi bạn thực hiện các hoạt động ghi dữ liệu trong Delta Lake, các dòng dữ liệu mới sẽ được ghi vào các tệp Delta mới. Điều này có thể dẫn đến việc có nhiều tệp dữ liệu nhỏ, làm cho việc đọc dữ liệu trở nên chậm và tốn nhiều tài nguyên lưu trữ. Để giải quyết vấn đề đó Delta Lake thực hiện quá trình compact để tổ chức lại và giảm kích thước dữ liệu. Quá trình compact giúp cải thiện hiệu suất đọc dữ liệu và giảm dung lượng lưu trữ.
+    + Nó thực hiện tự động dựa theo configuration hoặc manual với lệnh `OPTIMIZE`. 
+    + Quy tắc Compaction gồm 2 cấu hình Quy tắc là: Số lượng tệp (File Size Rule) có nghĩa là ngưỡng dung lượng các tệp Delta, Quy tắc Thời gian (Time-based Rule) thời gian tối thiểu giữa các lần thực hiện Compaction.
+    + Được Cấu hình tại: `/path/to/delta/tables/<table_name>/_delta_log/delta.properties`
+    + Giá trị mặc định của cả hai tùy chọn này là `null`, điều này có nghĩa là mặc định Delta Lake sẽ không áp dụng Compaction tự động. 
 
     ```yaml
     // Ví dụ 
@@ -202,9 +213,9 @@ Delta Lake cung cấp nhiều tính năng và cơ chế tối ưu hóa để c�
     + **Write Ahead Log (WAL):**  Khi thực hiện các giao dịch ghi dữ liệu, Delta Lake sử dụng Write Ahead Log (WAL) để ghi lại các thay đổi dữ liệu trước khi áp dụng vào các tập tin Parquet.
     
 ### 5. Tích hợp Batch và Stream
-Delta Lake hỗ trợ cả xử lý dữ liệu lô và dữ liệu luồng, cung cấp một giải pháp thống nhất cho các khối công việc thời gian thực và lô.
+Delta Lake hỗ trợ cả xử lý dữ liệu batch và dữ liệu luồng, cung cấp một giải pháp thống nhất cho các khối công việc thời gian thực và batch.
 
-- **Batch Processing (Xử lý dữ liệu lô):** Cho phép bạn thực hiện các công việc xử lý dữ liệu lô truyền thống như ETL (Extract, Transform, Load), batch analytics, và các công việc phân tích dữ liệu lớn. 
+- **Batch Processing (Xử lý dữ liệu batch):** Cho phép bạn thực hiện các công việc xử lý dữ liệu batch truyền thống như ETL (Extract, Transform, Load), batch analytics, và các công việc phân tích dữ liệu lớn. 
 
     EX: CSV chứa dữ liệu về các giao dịch mua hàng từ các khách hàng trong một khoảng thời gian cụ thể. Bạn muốn xử lý dữ liệu này để tính tổng số tiền bán hàng từng khách hàng và lưu kết quả vào một bảng mới.
 
