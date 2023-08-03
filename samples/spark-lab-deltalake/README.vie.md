@@ -2,12 +2,11 @@
 
 ![Delta Lake](../../documents/delta-lake.jpeg)
 
-## Giới thiệu về Delta Lake
 Delta Lake là một lớp lưu trữ mã nguồn mở, mang đến giao dịch ACID (đề cập bên dưới), bảo vệ schema và xử lý khối công việc dữ liệu lớn. Delta Lake được thiết kế để cải thiện và mở rộng các tính năng của Apache Spark, đặc biệt là trong việc xử lý dữ liệu lớn, chịu tải cao và thực hiện các thao tác dữ liệu cùng lúc (concurrency). 
 
-![Delta Lake Feauture](../../documents/delta-lake-feature.jpeg)
-
 Điều này cho phép Delta Lake hỗ trợ việc đọc và ghi đồng thời (concurrent read-write), điều mà các định dạng lưu trữ dữ liệu truyền thống không hỗ trợ. Một số tính năng và lợi ích chính của Delta Lake bao gồm:
+
+![Delta Lake Feauture](../../documents/delta-lake-feature.jpeg)
 
 
 ### 1. Giao dịch ACID
