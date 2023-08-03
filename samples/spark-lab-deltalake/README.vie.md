@@ -6,7 +6,7 @@ Delta Lake là một lớp lưu trữ mã nguồn mở, mang đến giao dịch 
 
 Điều này cho phép Delta Lake hỗ trợ việc đọc và ghi đồng thời (concurrent read-write), điều mà các định dạng lưu trữ dữ liệu truyền thống không hỗ trợ. Một số tính năng và lợi ích chính của Delta Lake bao gồm:
 
-![Delta Lake Feauture](../../documents/delta-lake-feature.jpeg)
+![Delta Lake Feauture](../../documents/delta-lake-feature.png)
 
 
 ### 1. Giao dịch ACID
