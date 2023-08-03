@@ -1,6 +1,6 @@
 # An Introduction to Delta Lake and Performance Testing Data Processing with Apache Spark
 
-![Delta Lake](../../documents/delta-lake.jpeg)
+![Delta Lake](../../documents/delta-lake.png)
 
 Delta Lake là một lớp lưu trữ mã nguồn mở, mang đến giao dịch ACID (đề cập bên dưới), bảo vệ schema và xử lý khối công việc dữ liệu lớn. Delta Lake được thiết kế để cải thiện và mở rộng các tính năng của Apache Spark, đặc biệt là trong việc xử lý dữ liệu lớn, chịu tải cao và thực hiện các thao tác dữ liệu cùng lúc (concurrency). 
 
@@ -11,7 +11,9 @@ Delta Lake là một lớp lưu trữ mã nguồn mở, mang đến giao dịch 
 
 ### 1. Giao dịch ACID
 
-Delta Lake hỗ trợ các giao dịch ACID (Atomicity, Consistency, Isolation, Durability) để đảm bảo tính toàn vẹn và đáng tin cậy của dữ liệu trong quá trình xử lý. ACID là viết tắt của Atomicity (Nguyên tố), Consistency (Nhất quán), Isolation (Độc lập) và Durability (Bền vững). Đây là các tính năng quan trọng của hệ thống quản lý cơ sở dữ liệu (DBMS) để đảm bảo tính toàn vẹn và đáng tin cậy của dữ liệu trong quá trình thực hiện các giao dịch.
+Delta Lake hỗ trợ các giao dịch ACID (Atomicity, Consistency, Isolation, Durability) để đảm bảo tính toàn vẹn và đáng tin cậy của dữ liệu trong quá trình xử lý. 
+
+ACID là viết tắt của Atomicity (Nguyên tố), Consistency (Nhất quán), Isolation (Độc lập) và Durability (Bền vững). Đây là các tính năng quan trọng của hệ thống quản lý cơ sở dữ liệu (DBMS) để đảm bảo tính toàn vẹn và đáng tin cậy của dữ liệu trong quá trình thực hiện các giao dịch.
 
 > EX: Giả sử bạn có một bảng lưu trữ dữ liệu về đơn hàng của khách hàng trong Delta Lake. Cần thực hiện một số tác động như thêm một mới vào bảng này, sửa đổi, xoá bỏ và cập nhật số lượng sản phẩm trong kho hàng và cập nhật tổng số tiền bán hàng.
 - **Một giao dịch được xem là Atomicity (Nguyên tố):** Tức là nó được thực hiện hoàn toàn hoặc không thực hiện gì cả. Nếu một phần của giao dịch thất bại, toàn bộ giao dịch sẽ bị hủy và dữ liệu sẽ được trả về trạng thái ban đầu.

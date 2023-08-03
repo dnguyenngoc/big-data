@@ -3,3 +3,6 @@ samples/spark-lab-deltalake/data/*
 
 # jupyterlab
 .ipynb_checkpoints
+
+# macos
+.DS_Store
