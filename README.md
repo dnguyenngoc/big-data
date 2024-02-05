@@ -23,7 +23,7 @@ The data platform comprises three main layers: Storage, Computing, and Visualiza
 
 ### Storage Layer
 
-The Storage Layer incorporates Kafka and MinIO (Object Storage), utilized for storing raw data originating from user events, backend logs, third-party raw data, and more. 
+The Storage Layer integrates Kafka and MinIO (Object Storage) for storing raw data originating from user events, backend logs, third-party raw data, and more. This layer serves as the primary repository for a variety of data types, including raw data, warehouse data, and data mart.
 
 ### Computing Layer
 
