@@ -1,0 +1,1 @@
+/usr/lib/trino/bin/run-trino && /usr/lib/trino/bin/health-check

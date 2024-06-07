@@ -1,0 +1,1 @@
+docker buildx build --platform linux/arm64,linux/amd64 -t duynguyenngoc/hive-metastore:3.0.0 --push .
