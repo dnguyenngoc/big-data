@@ -4,9 +4,6 @@ on:
   push:
     branches: ["main"]
 
-env:
-  IMAGE: duynguyenngoc/spark-operator:3.5.1
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,4 +25,4 @@ jobs:
           context: ./components/spark-operator/
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: $IMAGE
+          tags: duynguyenngoc/spark-operator:3.5.1
