@@ -42,9 +42,6 @@ The Computing Layer encompasses four essential components: HP Query Engine, Anal
 The Visualization layer consists of tools that aid in visualizing data from the storage layer in the form of tables, charts, and more to make data easily understandable for users. These tools include Superset, PowerBI, and others.
 
 
-
-
-
 ## Team Members
 
 - **Duy Nguyen** - `Data Engineer` - duynguyenngoc@hotmail.com
