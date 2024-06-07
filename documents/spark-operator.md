@@ -18,12 +18,19 @@ A Spark application can be defined declaratively in a YAML file, which allows fo
 
 - Apply the YAML File Using kubectl: Once the YAML file is ready, you can use kubectl to apply this file to your Kubernetes cluster. The Spark Operator will then read this file, create the necessary Kubernetes resources, and manage the lifecycle of the Spark application.
 
-## 1. Spark Operator with Kubernetes
+## 1. Steps to Set Up Spark Operator with Kubernetes
+
+First, clone the repository containing the necessary configuration and scripts for deploying the Spark Operator
+
 ```sh
 git clone https://github.com/dnguyenngoc/big-data.git
+```
+Start the Spark Operator:
+Change your directory to the k8s folder where the Kubernetes deployment scripts are located and Use the provided script _start.sh to deploy the Spark Operator. The script automates the setup process.
+
+```sh
 cd big-data/k8s
 sh _start.sh spark-operator
-kubectl get pod,statefulset -n spark-operator
 ```
 
 ## 2. Submit Application
