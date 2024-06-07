@@ -9,10 +9,9 @@ The goal of this project is to create a distributed data system capable of proce
 1. [Objective](#objective)
 2. [Data Pipeline Architecture](#data-pipeline-architecture)
 3. [Developing Components for the Big Data System](./documents/developer.md)
-4. [Visualization Layer](./documents/visualization.md)
-5. [Computing Layer](./documents/computing.md)
-6. [Storage Layer](./documents/storage.md)
-
+4. [Storage Layer](#storage-layer)
+5. [Computing Layer](#computing-layer)
+6. [Visualization Layer](#visualization-layer)
 
 ## Data Pipeline Architecture
 
@@ -23,7 +22,7 @@ The data platform comprises three main layers: Storage, Computing, and Visualiza
 
 ### Storage Layer
 
-The Storage Layer integrates Kafka and MinIO (Object Storage) for storing raw data originating from user events, backend logs, third-party raw data, and more. This layer serves as the primary repository for a variety of data types, including raw data, warehouse data, and data mart.
+The Storage Layer integrates Kafka and MinIO (Object Storage) for storing raw data originating from user events, backend logs, third-party raw data, and more. This layer serves as the primary repository for a variety of data types, including raw data, warehouse data, and data mart, refer to [MinIO Operator Documentation](/documents/minio-operator.md).
 
 ### Computing Layer
 
@@ -31,8 +30,11 @@ The Computing Layer encompasses four essential components: HP Query Engine, Anal
 
 - **Spark Operator (Executor Engine):** Assisting in executing data processing and distributed computing tasks, including batch and streaming for real-time support, enabling live streaming and real-time data analytics. For detailed documentation, refer to [Spark Operator (Executor Engine) Documentation](/documents/spark-operator.md).
 
-- **High-Performance Query Engine:** Utilizing tools such as Trino, Presto, and similar software designed for efficient access and processing of data from databases or storage systems. This component optimizes speed and resource utilization for analytics tools in batch data processing.
+- **High-Performance Query Engine:** Utilizing tools such as Trino, Presto, and similar software designed for efficient access and processing of data from databases or storage systems. This component optimizes speed and resource utilization for analytics tools in batch data processing, refer to [High-Performance Query Engine](/documents/hq-engine.md).
 
+- **Analytic Engine:** (In developing)
+- **CDC:** (In developing)
+- **ETL:** (In developing)
 
 ### Visualization Layer
 
