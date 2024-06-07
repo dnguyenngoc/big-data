@@ -4,9 +4,19 @@ Spark Operator is a Kubernetes Operator designed for Spark. It aims to define an
 
 To learn more, you can check out the [Design](https://github.com/GoogleCloudPlatform/spark-on-k8s-operator/blob/master/docs/design.md), [API Specification](https://github.com/GoogleCloudPlatform/spark-on-k8s-operator/blob/master/docs/user-guide.md), and [User Guide](https://github.com/GoogleCloudPlatform/spark-on-k8s-operator/blob/master/docs/user-guide.md) on GitHub.
 
+![Spark Operator](./images/spark-operator.png)
+
 ## Why Choose Spark Operator
 
 The Spark Operator simplifies the deployment and management of Spark applications on Kubernetes. It provides a declarative way to run Spark applications, handling the complexities of resource management, scheduling, and monitoring. This allows developers to focus on writing Spark code rather than managing the underlying infrastructure. Additionally, Spark Operator supports both batch and streaming workloads, making it versatile for various big data processing needs.
+
+A Spark application can be defined declaratively in a YAML file, which allows for easy management and execution using Kubernetes tools such as kubectl.
+
+### How it Works
+
+- Define the Spark Application in YAML: You create a YAML file that describes your Spark application. This file includes specifications such as the type of application (e.g., Python, Java), the Docker image to use, resource requirements for drivers and executors, and other configuration settings.
+
+- Apply the YAML File Using kubectl: Once the YAML file is ready, you can use kubectl to apply this file to your Kubernetes cluster. The Spark Operator will then read this file, create the necessary Kubernetes resources, and manage the lifecycle of the Spark application.
 
 ## 1. Spark Operator with Kubernetes
 ```sh
