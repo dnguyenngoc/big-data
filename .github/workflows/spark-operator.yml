@@ -3,6 +3,8 @@ name: Spark Operator
 on:
   push:
     branches: ["main"]
+    paths:
+      - 'components/spark-operator/**/*'
 
 jobs:
   build:
