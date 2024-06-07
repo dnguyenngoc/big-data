@@ -1,0 +1,100 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: default-token
+  annotations:
+    kubernetes.io/service-account.name: default
+type: kubernetes.io/service-account-token
+data:
+  token: ZXlKaGJHY2lPaUpTVXpJMU5pSXNJbXRwWkNJNkltbE9VRk40TVc1V1VEUnBkSGxGZVdoeWFsZFBiUzFOYlZSZlVuUk5jbmR6TlhsNVoxOVZWR3BwTUZVaWZRLmV5SnBjM01pT2lKcmRXSmxjbTVsZEdWekwzTmxjblpwWTJWaFkyTnZkVzUwSWl3aWEzVmlaWEp1WlhSbGN5NXBieTl6WlhKMmFXTmxZV05qYjNWdWRDOXVZVzFsYzNCaFkyVWlPaUprWldaaGRXeDBJaXdpYTNWaVpYSnVaWFJsY3k1cGJ5OXpaWEoyYVdObFlXTmpiM1Z1ZEM5elpXTnlaWFF1Ym1GdFpTSTZJbVJsWm1GMWJIUXRkRzlyWlc0aUxDSnJkV0psY201bGRHVnpMbWx2TDNObGNuWnBZMlZoWTJOdmRXNTBMM05sY25acFkyVXRZV05qYjNWdWRDNXVZVzFsSWpvaVpHVm1ZWFZzZENJc0ltdDFZbVZ5Ym1WMFpYTXVhVzh2YzJWeWRtbGpaV0ZqWTI5MWJuUXZjMlZ5ZG1salpTMWhZMk52ZFc1MExuVnBaQ0k2SWpWaE5qUmhZbVUwTFdNM01HUXROR1k0WWkwNE56azFMV0ZsTXpnM05tUmtOamxtWVNJc0luTjFZaUk2SW5ONWMzUmxiVHB6WlhKMmFXTmxZV05qYjNWdWREcGtaV1poZFd4ME9tUmxabUYxYkhRaWZRLlJFZ2loZjlTVGxKdmpVS0Q4S2xBOVNLWFVHWXdnU3J1WHF2aDlXV3h1c2NnZDFSQUlqMmpKNE9Kc214UVAydm5ZWEt1aHh2TkpodXkzX2VIMWNmalVZS1RSTmhDVGxQMXFCTTBWczdtTWpIb3FxZDFfMGxjM0NRd0xmeFdKRE5sZFBYRTIxOFFPWGdrZlFfZkpDakpUUnp5SnN3WmFsUmtnWGxucEZpLXpESVZmaldyWmpwOGhJaXFiWWF3bDVtZG5NSmhvNzFLZC1jZUJEb3d0NWVuZEkyVEpKam5ISUpKY2VkaC1mVHdyOGhocnN4UGRJRG1HcEhpa0hISmplendXTVBxb2drV2pWNlNnNUtsT2liTGk4Um9uX1NWejRCX3pORkp0RXU5eHV4aGNYOV9CRHRNbWNaV1lIWDEzSENmaFRUTXJrSHB5ejRRbkZ3ZHVBN0xHdw==
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: sparkoperator-token
+  namespace: spark-operator
+  annotations:
+    kubernetes.io/service-account.name: sparkoperator
+type: kubernetes.io/service-account-token
+data:
+  token: ZXlKaGJHY2lPaUpTVXpJMU5pSXNJbXRwWkNJNkltbE9VRk40TVc1V1VEUnBkSGxGZVdoeWFsZFBiUzFOYlZSZlVuUk5jbmR6TlhsNVoxOVZWR3BwTUZVaWZRLmV5SnBjM01pT2lKcmRXSmxjbTVsZEdWekwzTmxjblpwWTJWaFkyTnZkVzUwSWl3aWEzVmlaWEp1WlhSbGN5NXBieTl6WlhKMmFXTmxZV05qYjNWdWRDOXVZVzFsYzNCaFkyVWlPaUprWldaaGRXeDBJaXdpYTNWaVpYSnVaWFJsY3k1cGJ5OXpaWEoyYVdObFlXTmpiM1Z1ZEM5elpXTnlaWFF1Ym1GdFpTSTZJbVJsWm1GMWJIUXRkRzlyWlc0aUxDSnJkV0psY201bGRHVnpMbWx2TDNObGNuWnBZMlZoWTJOdmRXNTBMM05sY25acFkyVXRZV05qYjNWdWRDNXVZVzFsSWpvaVpHVm1ZWFZzZENJc0ltdDFZbVZ5Ym1WMFpYTXVhVzh2YzJWeWRtbGpaV0ZqWTI5MWJuUXZjMlZ5ZG1salpTMWhZMk52ZFc1MExuVnBaQ0k2SWpWaE5qUmhZbVUwTFdNM01HUXROR1k0WWkwNE56azFMV0ZsTXpnM05tUmtOamxtWVNJc0luTjFZaUk2SW5ONWMzUmxiVHB6WlhKMmFXTmxZV05qYjNWdWREcGtaV1poZFd4ME9tUmxabUYxYkhRaWZRLlJFZ2loZjlTVGxKdmpVS0Q4S2xBOVNLWFVHWXdnU3J1WHF2aDlXV3h1c2NnZDFSQUlqMmpKNE9Kc214UVAydm5ZWEt1aHh2TkpodXkzX2VIMWNmalVZS1RSTmhDVGxQMXFCTTBWczdtTWpIb3FxZDFfMGxjM0NRd0xmeFdKRE5sZFBYRTIxOFFPWGdrZlFfZkpDakpUUnp5SnN3WmFsUmtnWGxucEZpLXpESVZmaldyWmpwOGhJaXFiWWF3bDVtZG5NSmhvNzFLZC1jZUJEb3d0NWVuZEkyVEpKam5ISUpKY2VkaC1mVHdyOGhocnN4UGRJRG1HcEhpa0hISmplendXTVBxb2drV2pWNlNnNUtsT2liTGk4Um9uX1NWejRCX3pORkp0RXU5eHV4aGNYOV9CRHRNbWNaV1lIWDEzSENmaFRUTXJrSHB5ejRRbkZ3ZHVBN0xHdw==
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sparkoperator
+  namespace: spark-operator
+secrets:
+- name: sparkoperator-token
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: sparkoperator
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["*"]
+- apiGroups: [""]
+  resources: ["configmaps", "persistentvolumeclaims", "services"]
+  verbs: ["*"]
+- apiGroups: ["extensions"]
+  resources: ["ingresses"]
+  verbs: ["create", "get", "delete"]
+- apiGroups: [""]
+  resources: ["nodes"]
+  verbs: ["get"]
+- apiGroups: [""]
+  resources: ["resourcequotas"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: [""]
+  resources: ["events"]
+  verbs: ["create", "update", "patch"]
+- apiGroups: ["apiextensions.k8s.io"]
+  resources: ["customresourcedefinitions"]
+  verbs: ["create", "get", "update", "delete"]
+- apiGroups: ["admissionregistration.k8s.io"]
+  resources: ["mutatingwebhookconfigurations", "validatingwebhookconfigurations"]
+  verbs: ["create", "get", "update", "delete"]
+- apiGroups: ["sparkoperator.k8s.io"]
+  resources: ["sparkapplications", "scheduledsparkapplications", "sparkapplications/status", "scheduledsparkapplications/status", "sparkapplications/finalizers", "scheduledsparkapplications/finalizers"]
+  verbs: ["*"]
+- apiGroups: ["scheduling.volcano.sh"]
+  resources: ["podgroups", "queues", "queues/status"]
+  verbs: ["get", "list", "watch", "create", "delete", "update"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: sparkoperator
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: default
+  - kind: ServiceAccount
+    name: sparkoperator
+    namespace: spark-operator
+roleRef:
+  kind: ClusterRole
+  name: sparkoperator
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    rbac.authorization.k8s.io/aggregate-to-admin: "true"
+  name: sparkoperator-aggregate-to-admin
+rules:
+- apiGroups: ["sparkoperator.k8s.io"]
+  resources: ["sparkapplications", "scheduledsparkapplications"]
+  verbs:
+  - create
+  - delete
+  - deletecollection
+  - get
+  - list
+  - patch
+  - update
+  - watch

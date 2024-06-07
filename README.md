@@ -29,13 +29,10 @@ The Storage Layer integrates Kafka and MinIO (Object Storage) for storing raw da
 
 The Computing Layer encompasses four essential components: HP Query Engine, Analysis Engine, ETL System, and Spark Cluster (Executor Engine).
 
+- **Spark Operator (Executor Engine):** Assisting in executing data processing and distributed computing tasks, including batch and streaming for real-time support, enabling live streaming and real-time data analytics. For detailed documentation, refer to [Spark Operator (Executor Engine) Documentation](/documents/spark-operator.md).
+
 - **High-Performance Query Engine:** Utilizing tools such as Trino, Presto, and similar software designed for efficient access and processing of data from databases or storage systems. This component optimizes speed and resource utilization for analytics tools in batch data processing.
 
-- **ETL System:** The ETL system is used to extract data from various sources and load it into the data storage system (data lake) through scheduled and managed data processing tasks.
-
-- **Analysis Engine:** Comprising tools like Jupyter Notebook, DBT, and others facilitating the development of data processing and transformation pipelines for engineers.
-
-- **Spark Cluster (Executor Engine):** Assisting in executing data processing and distributed computing tasks, including batch and streaming for real-time support, enabling live streaming and real-time data analytics.
 
 ### Visualization Layer
 
